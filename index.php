@@ -12,7 +12,7 @@ require_once "global/functii.php";
 
 
 
-
+//
 
 $database=Database::getInstatnta();
 $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSOC);
