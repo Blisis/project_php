@@ -155,16 +155,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $('.adaugare_rezervare').on('click',function (e) {
-        e.preventDefault();
-        let idcamera=$(this).data('id');
-        $.ajax({
-            url:'adauga_rezervare.php?id_produs='+idcamera
-        });
-        return false;
-    });
 
-</script>
 </body>
 </html>
