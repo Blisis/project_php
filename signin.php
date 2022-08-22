@@ -15,14 +15,17 @@ if(ispost()){
     if ($_POST['parola']!==$_POST['confirmaparola']){
         $erori['invalid_confirma_parola']="Parola nu se potriveste";
     }
+    if ($_POST['nick']!==$_POST['nick']){
+        $erori['invalid_nick']="";
+    }
     if(count($erori)==0){
         $nume=$_POST['nume'];
         $tel=$_POST['tel'];
-
+        $nick=$_POST['nick'];
         $email=$_POST['email'];
         $parola=md5($_POST['parola']);
         $token = md5(rand(1000, PHP_INT_MAX));
-        $database->query("insert into `useri`(`nume`,`email`,`parola`, `token_activari`) values ('{$nume}','{$email}','{$parola}', '{$token}')");
+        $database->query("insert into `useri`(`nume`,`email`,`parola`, `token_activari`,`nick`) values ('{$nume}','{$email}','{$parola}', '{$token}','{$nick}')");
         sendActivationMail($email, $token);
         $success = true;
     }
@@ -51,26 +54,36 @@ if(ispost()){
                 <form action="" method="POST">
                     <?php if (isset($success) && $success === true) {  ?>
                         <div class="alert alert-info">
-                            Contul a fost creat! Verifica emailul!
+                            Contul a fost creat! Verifica e-mail!
                         </div>
                     <?php  }  ?>
 
 
 
-                    <!--  NUMELE -->
+<!--                      NUMELE -->
                     <div class="form-group">
                         <label for="">Nume</label>
-                        <input type="text"name="nume" class="form-control">
+                        <input type="text" name="nume" class="form-control" placeholder="Numele">
                         <?php
                         if(isset($erori['invalid_nume'])){
                             echo $erori['invalid_nume'];}
                         ?>
                     </div>
 
-                    <!-- TELEFON   -->
+<!--                    user-name-->
+                    <div class="form-group">
+                        <label for="">User</label>
+                        <input type="text" name="nick" class="form-control" placeholder="User name">
+                        <?php
+                        if(isset($erori['invalid_user'])){
+                            echo $erori['invalid_user'];}
+                        ?>
+                    </div>
+
+<!--                     TELEFON   -->
                     <div class="form-group">
                         <label for="">Numar de telefon</label>
-                        <input type="number" name="tel" class="form-control">
+                        <input type="number" name="tel" class="form-control" placeholder="Numarul de telefon">
                         <?php
                         if(isset($erori['invalid_telefon'])){
                             echo $erori['invalid_telefon'];}
@@ -81,10 +94,10 @@ if(ispost()){
 
 
 
-                    <!-- E-MAIL -->
+<!--                     E-MAIL -->
                     <div class="form-group">
                         <label for="">E-mail</label>
-                        <input type="email"name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" placeholder="E-mail">
                         <?php
                         if(isset($erori['invalid_mail'])){
                             echo $erori['invalid_mail'];}
@@ -93,19 +106,20 @@ if(ispost()){
 
 
 
-                        <!--   PAROLA  -->
+<!--                           PAROLA  -->
                     <div class="form-group">
                         <label for="">Parola</label>
-                        <input type="password"name="parola" class="form-control">
+                        <input type="password" name="parola" class="form-control" placeholder="Parola">
                         <?php
                         if(isset($erori['invalid_parola'])){
                             echo $erori['invalid_parola'];}
                         ?>
                     </div>
 
+<!--                    confirma parola-->
                     <div class="form-group">
                         <label for="">Confirma Parola</label>
-                        <input type="password"name="confirmaparola" class="form-control">
+                        <input type="password" name="confirmaparola" class="form-control" placeholder="Confirmati Parola">
                         <?php
                         if(isset($erori['invalid_confirma_parola'])){
                             echo $erori['invalid_confirma_parola'];}
@@ -113,7 +127,7 @@ if(ispost()){
                     </div>
 
                     <div>
-                        <input type="submit" class="btn btn-success"value="Creaza">
+                        <input type="submit" class="btn btn-success" value="Creaza">
                     </div>
 
                 </form>

@@ -43,6 +43,7 @@ $camere=$database->query("select * from camere as c join tip_camera as tip where
                         }?>
                             <a href="<?php url;?>vizual.php?id=<?php echo $camera['id']; ?>" class="btn btn-info" role="button" style ="float: right">Detalii</a>
                         </p>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
