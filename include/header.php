@@ -1,8 +1,6 @@
 <?php $tip_camera=$database->query("
 select * from tip_camera
 ")->fetch_all(MYSQLI_ASSOC);
-
-
 ?>
 <div class="row backgroundAlb">
     <div class="col-md-6">
@@ -50,12 +48,11 @@ select * from tip_camera
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Acasa<span class="sr-only">(current)</span></a></li>
-                    <!--      aici sa fac legaturiile cu linkuriile              -->
                     <?php
 
                     foreach ($tip_camera  as $tip){
                  ?>
-                            <li><a href="<?php echo url;?>tipuri.php?id=<?php echo $tip['id']; ?>"><?php echo $tip['nume']?></a></li>
+                            <li><a href="<?php echo url;?>tipuri.php?id=<?php echo $tip['id']; ?>"><?php echo ucfirst($tip['nume'])?></a></li>
                             <?php
                         }?>
                     <li><a href="<?php echo url;?>contact.php">Contact</a></li>
