@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         var_dump($id_camera);
 //        echo "<pre>".PHP_EOL;
 //        var_dump($endDate);
-        die();
+//        die();
 
 
 
