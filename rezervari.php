@@ -41,9 +41,10 @@ $rezervari=$database->query("select * from rezervari as r  , camere as c where i
                         <p><?php echo "Camera cu vedere la : ".$rezervare['vedere']; ?></p>
                         <p><?php echo "Rezervata in perioada : <b>".$rezervare['data_start']."-".$rezervare['data_stop']."</b>"; ?></p>
                         <p>
-                            <?php if( $rezervare['data_stop']< $time);{
-                                    echo "acorda feedback";
-                                    };?>
+                            <?php
+                            if( $time<$rezervare['data_stop']){
+                                echo "Acorda un feedback <br>" ;
+                            };?>
                                     Va asteptam cu drag!</p>
 
 <!--                        <p>-->
