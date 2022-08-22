@@ -1,6 +1,19 @@
 <?php
 require_once "global/db.php";
 require_once "global/functii.php";
+
+//echo "<pre>";
+//var_dump($_SERVER["REQUEST_URI"]);
+//$q = explode('/',$_SERVER["REQUEST_URI"]);
+//$q = array_filter($q);
+//$q = reset($q);
+//var_dump($q);
+//die();
+
+
+
+
+
 $database=Database::getInstatnta();
 $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSOC);
 
@@ -34,13 +47,14 @@ $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSO
                     <img src="<?php echo url."imagini/camere/".$camera['poza']; ?>"  style="max-width: 170px;max-height: 170px">
                     <div class="caption">
                         <h3><?php echo $camera['camera_nr']; ?></h3>
-                        <p><?php echo $camera['descriere']; ?></p>
+                        <p><?php echo substr($camera['descriere'],0,50); ?></p>
                         <p>
                         <?php if (islogin()) {?>
                             <a href="#"  class="btn btn-primary adaugareCos" data-id="<?php echo $camera['id'];?>" role="button" >Rezerva</a>
                             <?php }?>
                             <a href="<?php url;?>vizual.php?id=<?php echo $camera['id']; ?>" class="btn btn-info" role="button" style ="float: right">Detalii</a>
                         </p>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>

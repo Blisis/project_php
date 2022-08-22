@@ -1,6 +1,11 @@
 <?php
 session_start();
-define("url","http://localhost/Proiect/");
+$requestUri=$_SERVER["REQUEST_URI"];
+$requestUri = explode('/',$_SERVER["REQUEST_URI"]);
+$requestUri = array_filter($requestUri);
+$requestUri = reset($requestUri);
+$serverRoot='http://localhost/'.$requestUri.'/';
+define("url",$serverRoot);
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
     function ispost(){
