@@ -3,7 +3,7 @@ require_once "global/db.php";
 require_once "global/functii.php";
 $database=Database::getInstatnta();
 $id_user=$_SESSION['user']['id'];
-$user=$database->query("select u.id , u.nume , u.telefon , u.adresa , u.email 
+$user=$database->query("select u.id , u.nume , u.telefon , u.adresa , u.email ,u.nick
 from useri as u where u.id=$id_user;
 ")->fetch_all(MYSQLI_ASSOC);
 $user=reset($user);
@@ -26,20 +26,28 @@ if (ispost()) {
         $email=$_POST['email'];
         $telefon = $_POST['telefon'];
         $adresa = $_POST['adresa'];
+        $nick= $_POST['nick'];
         $database->query("update useri 
                     set nume ='{$nume}' , 
                         email='{$email}' ,
                         telefon='{$telefon}',
-                        adresa='{$adresa}'
+                        adresa='{$adresa}',
+                        nick='{$nick}'
                      where id='{$id_user}'");
-        header('Location:editeaza_user.php');
+
+
+//        nu da update in session !!!!!!!!!!!!!!!!!!!!!!
+
+
+        $_SESSION['user']["nume"] =$user["nume"];
+        header('Location:user.php');
+
     }
     else{
         var_dump($erori);
     };
 
 }
-
 ?>
 
 <html>
@@ -61,8 +69,10 @@ if (ispost()) {
             <tr>
                 <td>Nume</td>
                 <td>E-mail</td>
+                <td>User Name</td>
                 <td>Telefon</td>
                 <td>Adresa</td>
+
                 <td>
                     <a href="modifica_parola.php" class="btn btn-danger btn-sm">Modifica PAROLA</a>
                 </td>
@@ -84,6 +94,17 @@ if (ispost()) {
                         </div>
 
                     </td>
+
+                    <td>
+
+                    <div class="form-group" >
+                        <input type="text" name="nick" class="form-control" placeholder="User Name" value="<?php echo $user['nick'];  ?>">
+                    </div>
+
+                    </td>
+
+
+
                     <td>
 
                         <div class="form-group" >

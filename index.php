@@ -49,9 +49,7 @@ $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSO
                         <h3><?php echo $camera['camera_nr']; ?></h3>
                         <p><?php echo substr($camera['descriere'],0,50); ?></p>
                         <p>
-                        <?php if (islogin()) {?>
-                            <a href="#"  class="btn btn-primary adaugareCos" data-id="<?php echo $camera['id'];?>" role="button" >Rezerva</a>
-                            <?php }?>
+                            <?php  include "include/rezerva.php"; ?>
                             <a href="<?php url;?>vizual.php?id=<?php echo $camera['id']; ?>" class="btn btn-info" role="button" style ="float: right">Detalii</a>
                         </p>
                         <div class="clearfix"></div>
@@ -60,16 +58,7 @@ $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSO
             </div>
         <?php } ?>
     </div>
-    <script>
-        $('.adaugareCos').on('click',function (e) {
-            e.preventDefault();
-            let idprodus=$(this).data('id');
-            $.ajax({
-                url:'adauga_in_cos.php?id_produs='+idprodus
-            });
-            return false;
-        })
-    </script>
+
 </body>
 </html>
 

@@ -37,19 +37,16 @@ $rezervari=$database->query("select * from rezervari as r  , camere as c where i
                 <div class="thumbnail">
                     <img src="<?php echo url."imagini/camere/".$rezervare['poza']; ?>"  style="max-width: 170px;max-height: 170px">
                     <div class="caption">
-                        <h3><?php echo $rezervare['camera_nr']." ".ucfirst($rezervare['tip']); ?></h3>
-                        <p><?php echo "Camera cu vedere la : ".$rezervare['vedere']; ?></p>
+                        <h3><?php echo $rezervare['camera_nr']." <b>".ucfirst($rezervare['tip'])."</b>"; ?></h3>
+                        <p><?php echo "Camera cu vedere la : <b>".$rezervare['vedere']."</b>"; ?></p>
                         <p><?php echo "Rezervata in perioada : <b>".$rezervare['data_start']."-".$rezervare['data_stop']."</b>"; ?></p>
                         <p>
                             <?php
                             if( $time<$rezervare['data_stop']){
                                 echo "Acorda un feedback <br>" ;
                             };?>
-                                    Va asteptam cu drag!</p>
-
-<!--                        <p>-->
-<!--                            <a href="--><?php //url;?><!--vizual.php?id=--><?php //echo $rezervare['id']; ?><!--" class="btn btn-info" role="button" style ="float: right">Detalii</a>-->
-<!--                        </p>-->
+                                    Va asteptam cu drag!
+                        </p>
                         <div class="clearfix"></div>
                     </div>
                 </div>

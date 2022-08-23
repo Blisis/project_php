@@ -23,11 +23,6 @@ if(ispost()){
         $erori['invalid_pass']="Parola Invalida";
     }
 }
-
-
-
-
-
 ?>
 
 <html>
