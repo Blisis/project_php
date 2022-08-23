@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gazdă: 127.0.0.1
--- Timp de generare: aug. 20, 2022 la 08:07 PM
+-- Timp de generare: aug. 23, 2022 la 11:31 PM
 -- Versiune server: 10.4.22-MariaDB
 -- Versiune PHP: 8.0.13
 
@@ -35,37 +35,38 @@ CREATE TABLE `camere` (
   `tip` varchar(255) NOT NULL,
   `pret` int(11) NOT NULL,
   `vedere` varchar(30) NOT NULL,
-  `descriere` varchar(255) NOT NULL
+  `descriere` varchar(255) NOT NULL,
+  `feedback` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Eliminarea datelor din tabel `camere`
 --
 
-INSERT INTO `camere` (`id`, `camera_nr`, `poza`, `id_tip_camera`, `tip`, `pret`, `vedere`, `descriere`) VALUES
-(1, '002', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu'),
-(2, '003', 'single.jpg', 1, 'single', 60, 'mare', 'Această cameră are televizor cu ecran plat cu programe prin cablu'),
-(3, '102', 'duble.jpg', 2, 'duble', 80, 'munte', 'ntr-una dintre camerele noastre Standard'),
-(4, '305', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar'),
-(5, '101', 'duble.jpg', 2, 'duble', 100, 'mare', 'ntr-una dintre camerele noastre Standard'),
-(6, '302', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar'),
-(7, '201', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living'),
-(8, '202', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living'),
-(9, '004', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu'),
-(10, '005', 'single.jpg', 1, 'single', 60, 'mare', 'Această cameră are televizor cu ecran plat cu programe prin cablu'),
-(11, '006', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu'),
-(13, '103', 'duble.jpg', 2, 'duble', 100, 'mare', 'ntr-una dintre camerele noastre Standard'),
-(14, '104', 'duble.jpg', 2, 'duble', 80, 'munte', 'ntr-una dintre camerele noastre Standard'),
-(15, '105', 'duble.jpg', 2, 'duble', 100, 'mare', 'ntr-una dintre camerele noastre Standard'),
-(16, '106', 'duble.jpg', 2, 'duble', 80, 'munte', 'ntr-una dintre camerele noastre Standard'),
-(18, '203', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living'),
-(19, '204', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living'),
-(20, '205', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living'),
-(21, '206', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living'),
-(22, '301', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar'),
-(23, '303', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar'),
-(24, '304', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar'),
-(25, '306', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar');
+INSERT INTO `camere` (`id`, `camera_nr`, `poza`, `id_tip_camera`, `tip`, `pret`, `vedere`, `descriere`, `feedback`) VALUES
+(1, '002', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu', NULL),
+(2, '003', 'single.jpg', 1, 'single', 60, 'mare', 'Această cameră are televizor cu ecran plat cu programe prin cablu', NULL),
+(3, '102', 'duble.jpg', 2, 'duble', 80, 'munte', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(4, '305', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL),
+(5, '101', 'duble.jpg', 2, 'duble', 100, 'mare', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(6, '302', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL),
+(7, '201', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(8, '202', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(9, '004', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu', NULL),
+(10, '005', 'single.jpg', 1, 'single', 60, 'mare', 'Această cameră are televizor cu ecran plat cu programe prin cablu', NULL),
+(11, '006', 'single.jpg', 1, 'single', 50, 'munte', 'Această cameră are televizor cu ecran plat cu programe prin cablu', NULL),
+(13, '103', 'duble.jpg', 2, 'duble', 100, 'mare', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(14, '104', 'duble.jpg', 2, 'duble', 80, 'munte', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(15, '105', 'duble.jpg', 2, 'duble', 100, 'mare', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(16, '106', 'duble.jpg', 2, 'duble', 80, 'munte', 'Va puteti relaxa intr-una dintre camerele noastre Standard', NULL),
+(18, '203', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(19, '204', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(20, '205', 'apartament.jpg', 3, 'triple', 110, 'mare', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(21, '206', 'apartament.jpg', 3, 'triple', 90, 'munte', 'Aceste apartamente au zone separate de dormit și de living', NULL),
+(22, '301', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL),
+(23, '303', 'apartament.jpg', 4, 'apartament', 120, 'mare', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL),
+(24, '304', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL),
+(25, '306', 'apartament.jpg', 4, 'apartament', 100, 'munte', 'Pentru un sejur prelungit sau pentru spațiu suplimentar', NULL);
 
 -- --------------------------------------------------------
 
@@ -77,8 +78,18 @@ CREATE TABLE `mesaje` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_rezervare` int(11) NOT NULL,
-  `mesajul` varchar(255) NOT NULL
+  `mesajul` varchar(255) NOT NULL,
+  `subiect` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Eliminarea datelor din tabel `mesaje`
+--
+
+INSERT INTO `mesaje` (`id`, `id_user`, `id_rezervare`, `mesajul`, `subiect`) VALUES
+(1, 1, 2, 'as dorii apa si cola in camera la temperatura camerei', '4'),
+(2, 1, 2, 'vreau aer rece in camera', '4'),
+(3, 2, 3, 'vreau sa beau bere', '6');
 
 -- --------------------------------------------------------
 
@@ -90,10 +101,18 @@ CREATE TABLE `rezervari` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_camere` int(11) NOT NULL,
-  `data_start` int(11) NOT NULL,
-  `data_stop` int(11) NOT NULL,
+  `data_start` date NOT NULL,
+  `data_stop` date NOT NULL,
   `preferinte` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Eliminarea datelor din tabel `rezervari`
+--
+
+INSERT INTO `rezervari` (`id`, `id_user`, `id_camere`, `data_start`, `data_stop`, `preferinte`) VALUES
+(2, 1, 4, '2022-08-26', '2022-08-30', 'apa in camera'),
+(3, 1, 2, '2022-08-30', '2022-08-31', 'cola in bar');
 
 -- --------------------------------------------------------
 
@@ -130,16 +149,17 @@ CREATE TABLE `useri` (
   `nume` varchar(255) NOT NULL,
   `adresa` varchar(255) NOT NULL,
   `parola` varchar(255) NOT NULL,
-  `token_activari` varchar(255) DEFAULT NULL
+  `token_activari` varchar(255) DEFAULT NULL,
+  `nick` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Eliminarea datelor din tabel `useri`
 --
 
-INSERT INTO `useri` (`id`, `telefon`, `email`, `nume`, `adresa`, `parola`, `token_activari`) VALUES
-(1, '0722222222', 'radu.chirita92@gmail.com', 'radu', 'bucuresti', 'e10adc3949ba59abbe56e057f20f883e', NULL),
-(2, '', 'andrei@dian.com', 'andrei', '', 'f5bb0c8de146c67b44babbf4e6584cc0', NULL);
+INSERT INTO `useri` (`id`, `telefon`, `email`, `nume`, `adresa`, `parola`, `token_activari`, `nick`) VALUES
+(1, '0722222222', 'radu.chirita92@gmail.com', 'Radu Alexandru', 'bucuresti Sectorul 2', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'radu_001'),
+(2, '0777777777', 'andrei@dian.com', 'andrei', '', 'f5bb0c8de146c67b44babbf4e6584cc0', NULL, 'andrei_eu');
 
 --
 -- Indexuri pentru tabele eliminate
@@ -178,7 +198,8 @@ ALTER TABLE `tip_camera`
 ALTER TABLE `useri`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `useri_id_uindex` (`id`),
-  ADD UNIQUE KEY `useri_email_uindex` (`email`);
+  ADD UNIQUE KEY `useri_email_uindex` (`email`),
+  ADD UNIQUE KEY `useri_nick_uindex` (`nick`);
 
 --
 -- AUTO_INCREMENT pentru tabele eliminate
@@ -194,13 +215,13 @@ ALTER TABLE `camere`
 -- AUTO_INCREMENT pentru tabele `mesaje`
 --
 ALTER TABLE `mesaje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pentru tabele `rezervari`
 --
 ALTER TABLE `rezervari`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pentru tabele `tip_camera`
