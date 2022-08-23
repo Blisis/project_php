@@ -34,22 +34,14 @@ if (ispost()) {
                         adresa='{$adresa}',
                         nick='{$nick}'
                      where id='{$id_user}'");
-
-
-//        nu da update in session !!!!!!!!!!!!!!!!!!!!!!
-
-
         $_SESSION['user']["nume"] =$user["nume"];
         header('Location:user.php');
-
     }
     else{
         var_dump($erori);
     };
-
 }
 ?>
-
 <html>
 <head>
     <title>Editeaza User</title>
@@ -72,7 +64,6 @@ if (ispost()) {
                 <td>User Name</td>
                 <td>Telefon</td>
                 <td>Adresa</td>
-
                 <td>
                     <a href="modifica_parola.php" class="btn btn-danger btn-sm">Modifica PAROLA</a>
                 </td>
@@ -81,53 +72,37 @@ if (ispost()) {
             <tr class="table-dark ">
                 <form method="post" action="">
                     <td>
-
                         <div class="form-group" >
                             <input type="text" name="nume" class="form-control" placeholder="Nume" value="<?php echo $user['nume']; ?>">
                         </div>
-
                     </td>
                     <td>
-
                         <div class="form-group" >
                             <input type="email" name="email" class="form-control" placeholder="E-mail" value="<?php echo $user['email'];  ?>">
                         </div>
-
                     </td>
-
                     <td>
-
                     <div class="form-group" >
                         <input type="text" name="nick" class="form-control" placeholder="User Name" value="<?php echo $user['nick'];  ?>">
                     </div>
-
                     </td>
-
-
-
                     <td>
-
                         <div class="form-group" >
                             <input type="text" name="telefon" class="form-control" placeholder="Telefon" value="<?php echo $user['telefon'];  ?>">
                         </div>
-
                     </td>
                     <td>
-
                         <div class="form-group" >
                             <input type="text" name="adresa" class="form-control" placeholder="Adresa" value="<?php echo $user['adresa'];  ?>">
                         </div>
-
                     </td>
                     <td>
                         <button class="btn btn-warning btn-sm"> Salveaza informatiile</button>
                     </td>
                 </form>
             </tr>
-
         </table>
     </div>
 </div>
-
 </body>
 </html>

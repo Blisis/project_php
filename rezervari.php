@@ -5,12 +5,7 @@ $time = date("Y.m.d");
 $id_user=$_SESSION["user"]["id"];
 $database=Database::getInstatnta();
 $rezervari=$database->query("select * from rezervari as r  , camere as c where id_user={$id_user} && r.id_camere=c.id;")->fetch_all(MYSQLI_ASSOC);
-//echo "<pre>";
-//var_dump($time);
-//die();
 ?>
-
-
 <html>
 <head>
     <title>Green Pearl Resort </title>
@@ -22,12 +17,10 @@ $rezervari=$database->query("select * from rezervari as r  , camere as c where i
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<!-- aici este partea de sus -->
 <div class="container">
     <?php  include "include/header.php";
     ?>
 </div>
-<!-- aici afisam ce produse avem in baza de date-->
 <div class="container">
     <div class="row">
         <?php

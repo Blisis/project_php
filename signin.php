@@ -2,7 +2,6 @@
 require_once "global/db.php";
 require_once "global/functii.php";
 $database = Database::getInstatnta();
-
 if(ispost()){
     $erori=[];
     $success = false;
@@ -31,7 +30,6 @@ if(ispost()){
     }
 }
 ?>
-
 <html>
 <head>
     <title>Acasa</title>
@@ -57,10 +55,6 @@ if(ispost()){
                             Contul a fost creat! Verifica e-mail!
                         </div>
                     <?php  }  ?>
-
-
-
-<!--                      NUMELE -->
                     <div class="form-group">
                         <label for="">Nume</label>
                         <input type="text" name="nume" class="form-control" placeholder="Numele">
@@ -69,8 +63,6 @@ if(ispost()){
                             echo $erori['invalid_nume'];}
                         ?>
                     </div>
-
-<!--                    user-name-->
                     <div class="form-group">
                         <label for="">User</label>
                         <input type="text" name="nick" class="form-control" placeholder="User name">
@@ -79,8 +71,6 @@ if(ispost()){
                             echo $erori['invalid_user'];}
                         ?>
                     </div>
-
-<!--                     TELEFON   -->
                     <div class="form-group">
                         <label for="">Numar de telefon</label>
                         <input type="number" name="tel" class="form-control" placeholder="Numarul de telefon">
@@ -89,12 +79,6 @@ if(ispost()){
                             echo $erori['invalid_telefon'];}
                         ?>
                     </div>
-
-
-
-
-
-<!--                     E-MAIL -->
                     <div class="form-group">
                         <label for="">E-mail</label>
                         <input type="email" name="email" class="form-control" placeholder="E-mail">
@@ -103,10 +87,6 @@ if(ispost()){
                             echo $erori['invalid_mail'];}
                         ?>
                     </div>
-
-
-
-<!--                           PAROLA  -->
                     <div class="form-group">
                         <label for="">Parola</label>
                         <input type="password" name="parola" class="form-control" placeholder="Parola">
@@ -115,8 +95,6 @@ if(ispost()){
                             echo $erori['invalid_parola'];}
                         ?>
                     </div>
-
-<!--                    confirma parola-->
                     <div class="form-group">
                         <label for="">Confirma Parola</label>
                         <input type="password" name="confirmaparola" class="form-control" placeholder="Confirmati Parola">
@@ -125,11 +103,9 @@ if(ispost()){
                             echo $erori['invalid_confirma_parola'];}
                         ?>
                     </div>
-
                     <div>
                         <input type="submit" class="btn btn-success" value="Creaza">
                     </div>
-
                 </form>
             </div>
         </div>

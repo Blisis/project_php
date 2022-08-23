@@ -27,7 +27,6 @@
                         <div class="form-group">
                             <label for="">Preferinte</label>
                             <input type="text" name="detalii" placeholder="preferinte">
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>

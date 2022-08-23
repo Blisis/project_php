@@ -28,7 +28,6 @@ define ('SITE_ROOT', realpath(dirname(__FILE__)));
         if ($user->num_rows > 0) {
             return false;
         }}
-
         return true;
     }
     function valideaza_parola($parola){
@@ -42,7 +41,6 @@ define ('SITE_ROOT', realpath(dirname(__FILE__)));
     function sendActivationMail($email, $token){
         $subject = 'Inregistrare Site!';
         $message = "Activeaza-ti contul folosind acest link: http://siteulmeu.ro/activation.php?token=".$token;
-
         mail($email, $subject, $message);
     }
     function checkActivationToken($token, $database){
@@ -51,7 +49,6 @@ define ('SITE_ROOT', realpath(dirname(__FILE__)));
             $database->query("UPDATE useri u SET u.token_activari = NULL WHERE u.token_activari = '{$token}'");
             return true;
         }
-
         return false;
     }
 

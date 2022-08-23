@@ -6,6 +6,5 @@ if (isset($_GET['id_camera'])){
     $id_produs=$_GET['id_produs'];
     $id_user=$_SESSION['user']['id'];
     $produse=$database->query("insert into rezervari (`id_produs`, `cantitate`, `id_user`) values ({$id_produs},10,{$id_user})");
-
 }
 ?>

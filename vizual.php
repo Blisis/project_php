@@ -7,34 +7,21 @@ $camera=$database->query("
 select * from camere  where id={$id}; 
 ")->fetch_all(MYSQLI_ASSOC);
 $camera=reset($camera);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $errors = [];
     $success= false;
     $startDate = $_POST['start_date'];
     $endDate = $_POST['end_date'];
-
     if (DateTime::createFromFormat('Y-m-d', $startDate) === false) {
         $errors[] = 'start date gresit';
     }
     if (DateTime::createFromFormat('Y-m-d', $endDate) === false) {
         $errors[] = 'end date gresit';
     }
-
     if (count($errors) == 0) {
         $id_user=$_SESSION["user"]["id"];
         $id_camera=$id;
         $detalii=$_POST["detalii"];
-        echo "<pre>";
-        var_dump($id_camera);
-//        echo "<pre>".PHP_EOL;
-//        var_dump($endDate);
-//        die();
-
-
-
-
-
         $database->query("
                 insert into `rezervari`(`id_user`,`id_camere`,`data_start`, `data_stop`,`preferinte`) 
                 values ('{$id_user}','{$id_camera}','{$startDate}', '{$endDate}','{$detalii}')
@@ -87,8 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <?php echo $camera['descriere']; ?>
             </div>
             <br>
-
-
             <div class="col-md-3">
                 Feed-back clienti:
             </div>
@@ -96,10 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <?php echo $camera['feedback']; ?>
             </div>
             <br>
-
-
-
-
             <div class="col-md-3">
                 Pret :
             </div>
@@ -113,6 +94,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>
     </div>
 </div>
-
 </body>
 </html>

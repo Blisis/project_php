@@ -5,8 +5,6 @@ $database=Database::getInstatnta();
 $email=null;
 $erori=[];
 $succes=false;
-
-
 if (islogin()){
     $email=$_SESSION['user']['email'];
     $id_user=$_SESSION['user']['id'];
@@ -27,16 +25,12 @@ if(ispost()){
         $mesaj=$_POST['mesaj'];
         $database->query("insert into mag.`subiecte_mesaje`(`subiect`,`id_user`) values('{$subiect}','{$id_user}');");
         $lastID=$database->insert_id;
-
         $database->query("insert into mag.`mesaje`(`mesaj`,`id_user`,`id_subiect`) values('{$mesaj}','{$id_user}','{$lastID}');");
-
         $succes=true;
     }
-
     foreach ($erori as $eroare) {
         echo $eroare;
     }
-
 }
 ?>
 <html>
@@ -60,11 +54,8 @@ if(ispost()){
             <div class="panel-body">
                 <?php
                 if ($succes==true){
-
                     echo '<div class="alert alert-success">Am primit solicitarea ta , te vom contacta in cel mai scurt timp posibil!</div>';
-
                 }
-
                 ?>
                 <form action="" method="POST">
                     <div class="form-group">
@@ -89,8 +80,6 @@ if(ispost()){
                     <div>
                         <input type="submit" class="btn btn-success"value="Send">
                     </div>
-
-
                 </form>
             </div>
         </div>
@@ -130,13 +119,10 @@ if(ispost()){
                 </p>
                 <p>Cuplurile apreciază în mod deosebit această locaţie. I-au dat scorul 9,5 pentru un sejur pentru 2 persoane.
                 </p>
-
                 <p style="font-size: large">C.I.F. :  RO 123456 </p>
-
                 <p style="font-size: large">Tel contact: +40 22 22 22 </p>
                 <p style="font-size: x-large">Email:
                     <a href="mailto:contact@greanpearl.com" style="font-size:x-large;">contact@greenpearl.com</a></p>
-
             </div>
         </div>
     </div>

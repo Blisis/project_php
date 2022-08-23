@@ -3,11 +3,8 @@ require_once "global/db.php";
 require_once "global/functii.php";
 $database = Database::getInstatnta();
 if(ispost()){
-
     $erori=[];
-
     $success = false;
-
     if (!isvalidemail($_POST['email'], $database)) {
         $erori['invalid_mail'] = "E-mail Invalid";
     }
@@ -53,7 +50,6 @@ if(ispost()){
                             echo $erori['invalid_mail'];}
                         ?>
                     </div>
-
                     <div class="form-group">
                         <label for="">Parola</label>
                         <input type="password"name="parola" class="form-control">
@@ -62,11 +58,9 @@ if(ispost()){
                             echo $erori['invalid_parola'];}
                         ?>
                     </div>
-
                     <div>
                         <input type="submit" class="btn btn-success"value="Log In">
                     </div>
-
                 </form>
             </div>
         </div>

@@ -5,8 +5,6 @@ $database=Database::getInstatnta();
 $id_tip=$_GET['id'];
 $camere=$database->query("select * from camere as c join tip_camera as tip where id_tip_camera=tip.id && tip.id={$id_tip};")->fetch_all(MYSQLI_ASSOC);
 ?>
-
-
 <html>
 <head>
     <title>Green Pearl Resort </title>
@@ -18,12 +16,10 @@ $camere=$database->query("select * from camere as c join tip_camera as tip where
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<!-- aici este partea de sus -->
 <div class="container">
     <?php  include "include/header.php";
     ?>
 </div>
-<!-- aici afisam ce produse avem in baza de date-->
 <div class="container">
     <div class="row">
         <?php
@@ -45,6 +41,5 @@ $camere=$database->query("select * from camere as c join tip_camera as tip where
             </div>
         <?php } ?>
     </div>
-
 </body>
 </html>

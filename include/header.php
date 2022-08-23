@@ -23,7 +23,6 @@ select * from tip_camera
                 <a href="<?php echo url; ?>user.php" class="btn btn-danger btn-xs">Contul meu</a>
                 <a href="<?php echo url; ?>rezervari.php" class="btn btn-danger btn-sm">Rezervariile mele</a>
                 <a href="<?php echo url; ?>mesaje.php" class="btn btn-danger btn-xs">Mesaje</a>
-
             </div>
         <?php } else { //aici nu esti logat?>
             <div class="autentificareHeader" >
@@ -33,7 +32,6 @@ select * from tip_camera
         <?php } ?>
     </div>
 </div>
-<!--divul pentru categorii    -->
 <div class="row">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -49,21 +47,12 @@ select * from tip_camera
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Acasa<span class="sr-only">(current)</span></a></li>
                     <?php
-
-                    foreach ($tip_camera  as $tip){
-                 ?>
+                    foreach ($tip_camera  as $tip){ ?>
                             <li><a href="<?php echo url;?>tipuri.php?id=<?php echo $tip['id']; ?>"><?php echo ucfirst($tip['nume'])?></a></li>
-                            <?php
-                        }?>
+                    <?php }?>
                     <li><a href="<?php echo url;?>contact.php">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-
-
-
-
-
-

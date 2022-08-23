@@ -3,10 +3,11 @@ require_once "global/db.php";
 require_once "global/functii.php";
 $database=Database::getInstatnta();
 $user=$_SESSION["user"];
-
-
+$mesaje = $database->query("
+select * from mesaje where id_user={$user['id']}
+")->fetch_all(MYSQLI_ASSOC);
 ?>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Grean Pearl </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -19,19 +20,34 @@ $user=$_SESSION["user"];
 <body>
 <div class="container">
     <?php include "include/header.php"; ?>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-                <div class="thumbnail">
-                Mesaje primite
-
-            </div>
-
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3 thumbnail">
+                Subiect
+                    </div>
+                    <div class="col-md-9 thumbnail">
+                Mesaj
+                    </div>
                 </div>
             </div>
         </div>
+<?php foreach ($mesaje as $mesaj){?>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-3 thumbnail">
+                Rezervarea nr :<?php echo $mesaj["id_rezervare"]?>
+            </div>
+            <div class="col-md-9 thumbnail">
+                <?php echo $mesaj["mesajul"]?>
+            </div>
+        </div>
+    </div>
+</div>
+ <?php
+} ?>
     </div>
 </div>
 

@@ -1,25 +1,9 @@
 <?php
 require_once "global/db.php";
 require_once "global/functii.php";
-
-//echo "<pre>";
-//var_dump($_SERVER["REQUEST_URI"]);
-//$q = explode('/',$_SERVER["REQUEST_URI"]);
-//$q = array_filter($q);
-//$q = reset($q);
-//var_dump($q);
-//die();
-
-
-
-//
-
 $database=Database::getInstatnta();
 $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSOC);
-
 ?>
-
-
 <html>
 <head>
     <title>Green Pearl Resort </title>
@@ -31,12 +15,10 @@ $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSO
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<!-- aici este partea de sus -->
 <div class="container">
     <?php  include "include/header.php";
     ?>
 </div>
-<!-- aici afisam ce produse avem in baza de date-->
 <div class="container">
     <div class="row">
         <?php
@@ -58,7 +40,6 @@ $camere=$database->query("select * from camere limit 6;")->fetch_all(MYSQLI_ASSO
             </div>
         <?php } ?>
     </div>
-
 </body>
 </html>
 
